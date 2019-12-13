@@ -12,7 +12,8 @@ class TestMainPage(TestCase):
 
     def test_01_man_page(self):
         log('Проверяем кнопку "найти"')
-        self.main_page.search_click()
+        self.main_page.search_btn.should_be(Displayed)
+        self.main_page.search_btn.click()
         delay(5)
 
     def tearDown(self) -> None:
