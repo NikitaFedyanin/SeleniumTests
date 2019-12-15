@@ -1,10 +1,10 @@
 from unittest2 import *
 from sat import *
-from pages.main_page import MainPage
+from pages.main_page import YandexMainPage
 
 
 class TestMainPage(TestCase):
-    main_page = MainPage()
+    main_page = YandexMainPage()
 
     def setUp(self) -> None:
         log('Открываем главную страницу яндекса')
@@ -12,8 +12,8 @@ class TestMainPage(TestCase):
 
     def test_01_man_page(self):
         log('Проверяем кнопку "найти"')
-        self.main_page.search_btn.should_be(Displayed)
-        self.main_page.search_btn.click()
+        self.main_page.search_btn.should_be(Displayed).click()
+        self.main_page.empty_desc_elm.should_be(Displayed, wait_time=20).click()
         delay(5)
 
     def tearDown(self) -> None:
